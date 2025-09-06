@@ -1,0 +1,116 @@
+===== NVIDIA-SMI =====
+Sat Sep  6 02:20:11 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:47:00.0 Off |                    0 |
+| N/A   24C    P0             58W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Loading pytorch-extra-py39-cuda11.2-gcc9/1.9.1
+  Loading requirement: openblas/dynamic/0.3.18 hdf5_18/1.8.21 gcc9/9.5.0
+    python39 cuda11.2/toolkit/11.2.2 cudnn8.1-cuda11.2/8.1.1.33
+    ml-pythondeps-py39-cuda11.2-gcc9/4.8.1 nccl2-cuda11.2-gcc9/2.14.3
+    pytorch-py39-cuda11.2-gcc9/1.9.1
+Loading tensorflow2-py39-cuda11.2-gcc9/2.7.0
+  Loading requirement: protobuf3-gcc9/3.9.2
+Executing job script_b (ID=44656): python 14_module_GNN_HAM10000_s5_2/main.py
+
+=== Running: GFDCG | GNN=gcn | Fusion=gating | LGC=False ===
+Features: ['densenet121_features', 'densenet169_features', 'densenet201_features'] | Clinical=True
+[DEBUG] train_paths: {'VASC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/VASC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/VASC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/VASC'}, 'DF': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/DF', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/DF', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/DF'}, 'BKL': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/BKL', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/BKL', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/BKL'}, 'AKIEC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/AKIEC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/AKIEC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/AKIEC'}, 'BCC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/BCC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/BCC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/BCC'}, 'NV': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/NV', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/NV', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/NV'}, 'MEL': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/MEL', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/MEL', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/MEL'}, 'unlabeled': {}}
+[DEBUG] Loading features for feature_type: densenet121_features
+[DEBUG] X_base: (10015, 1024), y_train: (10015,)
+[DEBUG] Pre-check rows -> X_base: 10015, X_clinical: 10015
+[DEBUG] After augment: X_base: 46935, X_clinical: 46935
+Fold 1
+Epoch 1/5 - Train Loss: 1.8811, Val Loss: 1.8921, Train Acc: 0.3212, Val Acc: 0.3153
+Epoch 2/5 - Train Loss: 2.0376, Val Loss: 2.0664, Train Acc: 0.2711, Val Acc: 0.2625
+Epoch 3/5 - Train Loss: 1.9536, Val Loss: 1.9804, Train Acc: 0.2447, Val Acc: 0.2395
+Epoch 4/5 - Train Loss: 1.8076, Val Loss: 1.8350, Train Acc: 0.3028, Val Acc: 0.3001
+Epoch 5/5 - Train Loss: 1.6786, Val Loss: 1.7069, Train Acc: 0.3853, Val Acc: 0.3805
+Fold 2
+Epoch 1/5 - Train Loss: 1.9613, Val Loss: 1.9637, Train Acc: 0.3096, Val Acc: 0.3024
+Epoch 2/5 - Train Loss: 1.8139, Val Loss: 1.8310, Train Acc: 0.3382, Val Acc: 0.3306
+Epoch 3/5 - Train Loss: 1.7412, Val Loss: 1.7609, Train Acc: 0.3604, Val Acc: 0.3511
+Epoch 4/5 - Train Loss: 1.6869, Val Loss: 1.7050, Train Acc: 0.3756, Val Acc: 0.3672
+Epoch 5/5 - Train Loss: 1.6214, Val Loss: 1.6384, Train Acc: 0.4162, Val Acc: 0.4059
+Fold 3
+Epoch 1/5 - Train Loss: 1.9698, Val Loss: 1.9813, Train Acc: 0.3059, Val Acc: 0.2943
+Epoch 2/5 - Train Loss: 2.0319, Val Loss: 2.0602, Train Acc: 0.2841, Val Acc: 0.2720
+Epoch 3/5 - Train Loss: 1.8868, Val Loss: 1.9084, Train Acc: 0.2750, Val Acc: 0.2645
+Epoch 4/5 - Train Loss: 1.7629, Val Loss: 1.7791, Train Acc: 0.2981, Val Acc: 0.2923
+Epoch 5/5 - Train Loss: 1.6748, Val Loss: 1.6892, Train Acc: 0.3653, Val Acc: 0.3571
+Fold 4
+Epoch 1/5 - Train Loss: 2.0233, Val Loss: 2.0030, Train Acc: 0.2955, Val Acc: 0.2955
+Epoch 2/5 - Train Loss: 1.8879, Val Loss: 1.8791, Train Acc: 0.3032, Val Acc: 0.2963
+Epoch 3/5 - Train Loss: 1.8164, Val Loss: 1.8131, Train Acc: 0.3171, Val Acc: 0.3084
+Epoch 4/5 - Train Loss: 1.7514, Val Loss: 1.7489, Train Acc: 0.3438, Val Acc: 0.3353
+Epoch 5/5 - Train Loss: 1.6700, Val Loss: 1.6697, Train Acc: 0.3946, Val Acc: 0.3791
+Fold 5
+Epoch 1/5 - Train Loss: 2.0830, Val Loss: 2.0910, Train Acc: 0.2853, Val Acc: 0.2816
+Epoch 2/5 - Train Loss: 1.8638, Val Loss: 1.8658, Train Acc: 0.3135, Val Acc: 0.3081
+Epoch 3/5 - Train Loss: 1.7507, Val Loss: 1.7510, Train Acc: 0.3361, Val Acc: 0.3361
+Epoch 4/5 - Train Loss: 1.6690, Val Loss: 1.6695, Train Acc: 0.3726, Val Acc: 0.3700
+Epoch 5/5 - Train Loss: 1.5959, Val Loss: 1.5971, Train Acc: 0.4209, Val Acc: 0.4124
+
+=== Running: GFDHCA | GNN=gcn | Fusion=adaptive | LGC=False ===
+Features: ['densenet121_features', 'densenet169_features', 'densenet201_features', 'lbp_features', 'color_histograms_features', 'hsv_histograms_features'] | Clinical=True
+[DEBUG] train_paths: {'VASC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/VASC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/VASC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/VASC', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/VASC', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/VASC', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/VASC'}, 'DF': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/DF', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/DF', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/DF', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/DF', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/DF', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/DF'}, 'BKL': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/BKL', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/BKL', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/BKL', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/BKL', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/BKL', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/BKL'}, 'AKIEC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/AKIEC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/AKIEC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/AKIEC', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/AKIEC', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/AKIEC', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/AKIEC'}, 'BCC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/BCC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/BCC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/BCC', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/BCC', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/BCC', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/BCC'}, 'NV': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/NV', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/NV', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/NV', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/NV', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/NV', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/NV'}, 'MEL': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/MEL', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/MEL', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/MEL', 'lbp_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/lbp_features/MEL', 'color_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/color_histograms_features/MEL', 'hsv_histograms_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/hsv_histograms_features/MEL'}, 'unlabeled': {}}
+[DEBUG] Loading features for feature_type: densenet121_features
+[DEBUG] X_base: (10015, 1024), y_train: (10015,)
+[DEBUG] Pre-check rows -> X_base: 10015, X_clinical: 10015
+[DEBUG] After augment: X_base: 46935, X_clinical: 46935
+Fold 1
+Epoch 1/5 - Train Loss: 1.8617, Val Loss: 1.8834, Train Acc: 0.2532, Val Acc: 0.2519
+Epoch 2/5 - Train Loss: 1.8232, Val Loss: 1.8517, Train Acc: 0.2746, Val Acc: 0.2740
+Epoch 3/5 - Train Loss: 1.7306, Val Loss: 1.7560, Train Acc: 0.3179, Val Acc: 0.3163
+Epoch 4/5 - Train Loss: 1.6649, Val Loss: 1.6890, Train Acc: 0.3793, Val Acc: 0.3750
+Epoch 5/5 - Train Loss: 1.5874, Val Loss: 1.6115, Train Acc: 0.4222, Val Acc: 0.4125
+Fold 2
+Epoch 1/5 - Train Loss: 2.0139, Val Loss: 2.0141, Train Acc: 0.2632, Val Acc: 0.2658
+Epoch 2/5 - Train Loss: 2.0117, Val Loss: 2.0162, Train Acc: 0.2583, Val Acc: 0.2628
+Epoch 3/5 - Train Loss: 1.9120, Val Loss: 1.9209, Train Acc: 0.2582, Val Acc: 0.2582
+Epoch 4/5 - Train Loss: 1.7698, Val Loss: 1.7832, Train Acc: 0.2919, Val Acc: 0.2924
+Epoch 5/5 - Train Loss: 1.6648, Val Loss: 1.6807, Train Acc: 0.3409, Val Acc: 0.3390
+Fold 3
+Epoch 1/5 - Train Loss: 1.8719, Val Loss: 1.8691, Train Acc: 0.2572, Val Acc: 0.2492
+Epoch 2/5 - Train Loss: 1.8861, Val Loss: 1.9001, Train Acc: 0.2651, Val Acc: 0.2573
+Epoch 3/5 - Train Loss: 1.7704, Val Loss: 1.7892, Train Acc: 0.3052, Val Acc: 0.2997
+Epoch 4/5 - Train Loss: 1.6841, Val Loss: 1.7028, Train Acc: 0.3702, Val Acc: 0.3601
+Epoch 5/5 - Train Loss: 1.5958, Val Loss: 1.6123, Train Acc: 0.4214, Val Acc: 0.4097
+Fold 4
+Epoch 1/5 - Train Loss: 1.9445, Val Loss: 1.9259, Train Acc: 0.2648, Val Acc: 0.2615
+Epoch 2/5 - Train Loss: 1.9107, Val Loss: 1.8911, Train Acc: 0.2474, Val Acc: 0.2476
+Epoch 3/5 - Train Loss: 1.8070, Val Loss: 1.7966, Train Acc: 0.2633, Val Acc: 0.2540
+Epoch 4/5 - Train Loss: 1.7056, Val Loss: 1.7017, Train Acc: 0.3383, Val Acc: 0.3298
+Epoch 5/5 - Train Loss: 1.6064, Val Loss: 1.6097, Train Acc: 0.4248, Val Acc: 0.4172
+Fold 5
+Epoch 1/5 - Train Loss: 1.8519, Val Loss: 1.8628, Train Acc: 0.2956, Val Acc: 0.2964
+Epoch 2/5 - Train Loss: 1.8670, Val Loss: 1.8762, Train Acc: 0.2302, Val Acc: 0.2306
+Epoch 3/5 - Train Loss: 1.8364, Val Loss: 1.8430, Train Acc: 0.2663, Val Acc: 0.2692
+Epoch 4/5 - Train Loss: 1.7450, Val Loss: 1.7487, Train Acc: 0.3381, Val Acc: 0.3371
+Epoch 5/5 - Train Loss: 1.6190, Val Loss: 1.6220, Train Acc: 0.4086, Val Acc: 0.4069
+
+=== All Done ===
+
+===== SUMMARY =====
+    Model  ... Training Time (s) Std
+0   GFDCG  ...                   0.0
+1  GFDHCA  ...                   0.0
+
+[2 rows x 22 columns]
+Job complete.

@@ -1,0 +1,112 @@
+===== NVIDIA-SMI =====
+Sat Sep  6 02:34:07 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:07:00.0 Off |                    0 |
+| N/A   27C    P0             56W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Loading pytorch-extra-py39-cuda11.2-gcc9/1.9.1
+  Loading requirement: openblas/dynamic/0.3.18 hdf5_18/1.8.21 gcc9/9.5.0
+    python39 cuda11.2/toolkit/11.2.2 cudnn8.1-cuda11.2/8.1.1.33
+    ml-pythondeps-py39-cuda11.2-gcc9/4.8.1 nccl2-cuda11.2-gcc9/2.14.3
+    pytorch-py39-cuda11.2-gcc9/1.9.1
+Loading tensorflow2-py39-cuda11.2-gcc9/2.7.0
+  Loading requirement: protobuf3-gcc9/3.9.2
+Executing job script_b (ID=44659): python 14_module_GNN_HAM10000_s5_2/main.py
+
+=== Running: GFC | GNN=gcn | Fusion=none | LGC=False ===
+Features: [] | Clinical=True
+[DEBUG][GFC] X_cli: (10015, 19), y: (10015,)
+Fold 1
+Epoch 1/5 - Train Loss: 1.8921, Val Loss: 1.8980, Train Acc: 0.3515, Val Acc: 0.3640
+Epoch 2/5 - Train Loss: 1.8475, Val Loss: 1.8601, Train Acc: 0.2907, Val Acc: 0.3130
+Epoch 3/5 - Train Loss: 1.8158, Val Loss: 1.8348, Train Acc: 0.3310, Val Acc: 0.3460
+Epoch 4/5 - Train Loss: 1.7900, Val Loss: 1.8150, Train Acc: 0.3596, Val Acc: 0.3699
+Epoch 5/5 - Train Loss: 1.7662, Val Loss: 1.7956, Train Acc: 0.3706, Val Acc: 0.3655
+Fold 2
+Epoch 1/5 - Train Loss: 1.8888, Val Loss: 1.9032, Train Acc: 0.1928, Val Acc: 0.1997
+Epoch 2/5 - Train Loss: 1.8442, Val Loss: 1.8604, Train Acc: 0.2420, Val Acc: 0.2446
+Epoch 3/5 - Train Loss: 1.8165, Val Loss: 1.8364, Train Acc: 0.2942, Val Acc: 0.3075
+Epoch 4/5 - Train Loss: 1.7939, Val Loss: 1.8157, Train Acc: 0.3225, Val Acc: 0.3360
+Epoch 5/5 - Train Loss: 1.7716, Val Loss: 1.7935, Train Acc: 0.3471, Val Acc: 0.3570
+Fold 3
+Epoch 1/5 - Train Loss: 1.8969, Val Loss: 1.9242, Train Acc: 0.0786, Val Acc: 0.0764
+Epoch 2/5 - Train Loss: 1.8435, Val Loss: 1.8861, Train Acc: 0.1349, Val Acc: 0.1233
+Epoch 3/5 - Train Loss: 1.8112, Val Loss: 1.8571, Train Acc: 0.2657, Val Acc: 0.2571
+Epoch 4/5 - Train Loss: 1.7835, Val Loss: 1.8342, Train Acc: 0.2780, Val Acc: 0.2691
+Epoch 5/5 - Train Loss: 1.7577, Val Loss: 1.8148, Train Acc: 0.2898, Val Acc: 0.2741
+Fold 4
+Epoch 1/5 - Train Loss: 1.9142, Val Loss: 1.9151, Train Acc: 0.1317, Val Acc: 0.1333
+Epoch 2/5 - Train Loss: 1.8689, Val Loss: 1.8886, Train Acc: 0.0920, Val Acc: 0.0939
+Epoch 3/5 - Train Loss: 1.8355, Val Loss: 1.8677, Train Acc: 0.0784, Val Acc: 0.0829
+Epoch 4/5 - Train Loss: 1.8020, Val Loss: 1.8412, Train Acc: 0.1206, Val Acc: 0.1128
+Epoch 5/5 - Train Loss: 1.7697, Val Loss: 1.8128, Train Acc: 0.1618, Val Acc: 0.1558
+Fold 5
+Epoch 1/5 - Train Loss: 1.8897, Val Loss: 1.8746, Train Acc: 0.1710, Val Acc: 0.1777
+Epoch 2/5 - Train Loss: 1.8466, Val Loss: 1.8241, Train Acc: 0.2821, Val Acc: 0.2761
+Epoch 3/5 - Train Loss: 1.8150, Val Loss: 1.7927, Train Acc: 0.3105, Val Acc: 0.3090
+Epoch 4/5 - Train Loss: 1.7829, Val Loss: 1.7620, Train Acc: 0.3058, Val Acc: 0.2976
+Epoch 5/5 - Train Loss: 1.7568, Val Loss: 1.7382, Train Acc: 0.3003, Val Acc: 0.2931
+
+=== Running: GFDC | GNN=gcn | Fusion=concat | LGC=False ===
+Features: ['densenet121_features', 'densenet169_features', 'densenet201_features'] | Clinical=True
+[DEBUG] train_paths: {'VASC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/VASC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/VASC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/VASC'}, 'DF': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/DF', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/DF', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/DF'}, 'BKL': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/BKL', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/BKL', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/BKL'}, 'AKIEC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/AKIEC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/AKIEC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/AKIEC'}, 'BCC': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/BCC', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/BCC', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/BCC'}, 'NV': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/NV', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/NV', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/NV'}, 'MEL': {'densenet121_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet121_features/MEL', 'densenet169_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet169_features/MEL', 'densenet201_features': '/data2/cmdir/home/hieuvv/IMAGES/data2/data2_HAM10000_FEATURES/densenet201_features/MEL'}, 'unlabeled': {}}
+[DEBUG] Loading features for feature_type: densenet121_features
+[DEBUG] X_base: (10015, 1024), y_train: (10015,)
+[DEBUG] Pre-check rows -> X_base: 10015, X_clinical: 10015
+[DEBUG] After augment: X_base: 46935, X_clinical: 46935
+Fold 1
+Epoch 1/5 - Train Loss: 2.1114, Val Loss: 2.1401, Train Acc: 0.3001, Val Acc: 0.3027
+Epoch 2/5 - Train Loss: 1.9264, Val Loss: 1.9523, Train Acc: 0.3086, Val Acc: 0.3051
+Epoch 3/5 - Train Loss: 1.8053, Val Loss: 1.8249, Train Acc: 0.2897, Val Acc: 0.2891
+Epoch 4/5 - Train Loss: 1.7423, Val Loss: 1.7594, Train Acc: 0.3265, Val Acc: 0.3285
+Epoch 5/5 - Train Loss: 1.6776, Val Loss: 1.6949, Train Acc: 0.3912, Val Acc: 0.3864
+Fold 2
+Epoch 1/5 - Train Loss: 1.8480, Val Loss: 1.8562, Train Acc: 0.3296, Val Acc: 0.3268
+Epoch 2/5 - Train Loss: 1.9423, Val Loss: 1.9649, Train Acc: 0.2815, Val Acc: 0.2801
+Epoch 3/5 - Train Loss: 1.8736, Val Loss: 1.8965, Train Acc: 0.2857, Val Acc: 0.2861
+Epoch 4/5 - Train Loss: 1.7562, Val Loss: 1.7758, Train Acc: 0.3257, Val Acc: 0.3204
+Epoch 5/5 - Train Loss: 1.6551, Val Loss: 1.6715, Train Acc: 0.3842, Val Acc: 0.3732
+Fold 3
+Epoch 1/5 - Train Loss: 1.8127, Val Loss: 1.8288, Train Acc: 0.3145, Val Acc: 0.3069
+Epoch 2/5 - Train Loss: 1.8160, Val Loss: 1.8367, Train Acc: 0.3279, Val Acc: 0.3152
+Epoch 3/5 - Train Loss: 1.8226, Val Loss: 1.8460, Train Acc: 0.3081, Val Acc: 0.3006
+Epoch 4/5 - Train Loss: 1.7657, Val Loss: 1.7864, Train Acc: 0.3199, Val Acc: 0.3105
+Epoch 5/5 - Train Loss: 1.6734, Val Loss: 1.6914, Train Acc: 0.3670, Val Acc: 0.3522
+Fold 4
+Epoch 1/5 - Train Loss: 1.9973, Val Loss: 1.9701, Train Acc: 0.2975, Val Acc: 0.2948
+Epoch 2/5 - Train Loss: 1.8881, Val Loss: 1.8802, Train Acc: 0.2979, Val Acc: 0.2922
+Epoch 3/5 - Train Loss: 1.8913, Val Loss: 1.8835, Train Acc: 0.2793, Val Acc: 0.2771
+Epoch 4/5 - Train Loss: 1.7973, Val Loss: 1.7945, Train Acc: 0.3383, Val Acc: 0.3315
+Epoch 5/5 - Train Loss: 1.6847, Val Loss: 1.6859, Train Acc: 0.4092, Val Acc: 0.3964
+Fold 5
+Epoch 1/5 - Train Loss: 2.1351, Val Loss: 2.1556, Train Acc: 0.2774, Val Acc: 0.2733
+Epoch 2/5 - Train Loss: 1.9625, Val Loss: 1.9686, Train Acc: 0.3024, Val Acc: 0.2975
+Epoch 3/5 - Train Loss: 1.8165, Val Loss: 1.8172, Train Acc: 0.3260, Val Acc: 0.3255
+Epoch 4/5 - Train Loss: 1.7003, Val Loss: 1.7007, Train Acc: 0.3792, Val Acc: 0.3766
+Epoch 5/5 - Train Loss: 1.6156, Val Loss: 1.6169, Train Acc: 0.4260, Val Acc: 0.4251
+
+=== All Done ===
+
+===== SUMMARY =====
+  Model  ... Training Time (s) Std
+0   GFC  ...                   0.0
+1  GFDC  ...                   0.0
+
+[2 rows x 22 columns]
+Job complete.

@@ -1,0 +1,50 @@
+===== NVIDIA-SMI =====
+Fri Sep  5 21:24:32 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:07:00.0 Off |                    0 |
+| N/A   26C    P0             56W /  400W |       1MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+======================
+Loading pytorch-extra-py39-cuda11.2-gcc9/1.9.1
+  Loading requirement: openblas/dynamic/0.3.18 hdf5_18/1.8.21 gcc9/9.5.0
+    python39 cuda11.2/toolkit/11.2.2 cudnn8.1-cuda11.2/8.1.1.33
+    ml-pythondeps-py39-cuda11.2-gcc9/4.8.1 nccl2-cuda11.2-gcc9/2.14.3
+    pytorch-py39-cuda11.2-gcc9/1.9.1
+Loading tensorflow2-py39-cuda11.2-gcc9/2.7.0
+  Loading requirement: protobuf3-gcc9/3.9.2
+Executing job script_b (ID=44642): python 14_module_GNN_HAM10000_s5_2/main.py
+[DEBUG] metadata_train columns: ['lesion_id', 'image_id', 'dx', 'dx_type', 'age', 'sex', 'localization']
+[DEBUG] metadata_train dx head: ['bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl']
+[DEBUG] metadata_df columns: ['lesion_id', 'image_id', 'dx', 'dx_type', 'age', 'sex', 'localization']
+[DEBUG] metadata_df dx head: ['bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl']
+
+=== Running: GFC | GNN=gcn | Fusion=none | LGC=False ===
+Features: [] | Clinical=True
+[DEBUG] filtered_metadata shape: (10015, 7)
+[DEBUG] label_col: dx
+[DEBUG] First 10 label values: ['bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl', 'bkl']
+[DEBUG] Unique label values: ['bkl' 'nv' 'df' 'mel' 'vasc' 'bcc' 'akiec']
+[DEBUG] After mask: (10015, 19), y_train shape: (10015,)
+[DEBUG] y_train values: [2 2 2 ... 3 3 6]
+Traceback (most recent call last):
+  File "/data2/cmdir/home/hieuvv/IMAGES/14_module_GNN_HAM10000_s5_2/main.py", line 249, in <module>
+    main()
+  File "/data2/cmdir/home/hieuvv/IMAGES/14_module_GNN_HAM10000_s5_2/main.py", line 140, in main
+    if X_clinical is not None:
+UnboundLocalError: local variable 'X_clinical' referenced before assignment
+Job complete.
